@@ -188,7 +188,7 @@ public class Contenedor extends javax.swing.JFrame {
             Dimension desktopSize = jDesktopPane1.getSize();
         Dimension FrameSize = mantenimientoBodega.getSize();
          mantenimientoBodega.setLocation((desktopSize.width-FrameSize.width)/2,(desktopSize.height-FrameSize.height)/2);
-        this.dispose();
+        
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
