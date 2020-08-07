@@ -1,14 +1,11 @@
-
-drop database cafeteria;
 create database cafeteria;
-
 use cafeteria;
 
 create table proveedor(
 IdPreveedor int primary key not null,
 NombreProv varchar(50) not null,
-direccionProv varchar(128),
-telefonoProv varchar(128)
+Direccion varchar(50) not null,
+Telefono varchar(50) not null
 )Engine = InnoDB;
 
 create table compraencabezado(
@@ -16,7 +13,6 @@ Idcompraencabezado int primary key not null,
 IdPreveedor int not null,
 foreign key (IdPreveedor) references proveedor (IdPreveedor)
 )Engine = InnoDB;
-
 
 create table producto(
 IdProducto int primary key not null,
@@ -50,6 +46,13 @@ IdEmpresa int not null,
 foreign key (IdEmpresa) references empresa (IdEmpresa)
 )Engine = InnoDB;
 
+create table Usuario(
+IdUsuario int not null,
+Nombre varchar(30) not null,
+Pass varchar(30) not null,
+primary key (IdUsuario)
+)Engine = InnoDB;
+
 create table bodega(
 IdBodega int primary key not null,
 NombreB varchar(30) not null
@@ -72,12 +75,7 @@ foreign key (Idcompraencabezado) references compraencabezado (Idcompraencabezado
 
 create table vendedores(
 Idvendedor int primary key not null,
-nombreVendedor varchar(35) not null,
-telefonoVendedor varchar(128) not null,
-correoVendedor varchar(128) not null,
-estadoVendedor varchar(128) not null,
-edadVendedor int not null,
-sueldoVendedor double(6,2) not null
+nombre varchar(35) not null
 )Engine = InnoDB;
 
 create table puesto(
@@ -87,15 +85,6 @@ IdDepartamento int not null,
 Idvendedor int not null,
 foreign key (IdVendedor) references vendedores (IdVendedor),
 foreign key (IdDepartamento) references departamento (IdDepartamento)
-)Engine = InnoDB;
-
-create table Usuario(
-IdUsuario int not null,
-Nombre varchar(30) not null,
-Pass varchar(30) not null,
-IdPuesto int not null,
-primary key (IdUsuario, IdPuesto),
-foreign key (IdPuesto) references puesto (IdPuesto)
 )Engine = InnoDB;
 
 create table moneda(
