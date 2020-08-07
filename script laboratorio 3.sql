@@ -1,3 +1,4 @@
+drop database cafeteria;
 create database cafeteria;
 use cafeteria;
 
@@ -75,7 +76,12 @@ foreign key (Idcompraencabezado) references compraencabezado (Idcompraencabezado
 
 create table vendedores(
 Idvendedor int primary key not null,
-nombre varchar(35) not null
+nombreVendedor varchar(35) not null,
+telefonoVendedor varchar(128) not null,
+correoVendedor varchar(128) not null,
+estadoVendedor varchar(128) not null,
+edadVendedor int not null,
+sueldoVendedor double(6,2) not null
 )Engine = InnoDB;
 
 create table puesto(
