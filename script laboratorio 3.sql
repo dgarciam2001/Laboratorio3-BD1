@@ -1,6 +1,5 @@
 drop database cafeteria;
 create database cafeteria;
-
 use cafeteria;
 
 create table proveedor(
@@ -11,11 +10,12 @@ Telefono varchar(50) not null
 )Engine = InnoDB;
 
 create table compraencabezado(
-Idcompraencabezado int primary key not null,
+IdCompraEncabezado int primary key not null,
 IdPreveedor int not null,
+fechaCompraE date not null,
+totalCompraE double(6,2) not null,
 foreign key (IdPreveedor) references proveedor (IdPreveedor)
 )Engine = InnoDB;
-
 
 create table producto(
 IdProducto int primary key not null,
@@ -42,20 +42,6 @@ IdGrupo int not null,
 foreign key (IdGrupo) references grupo (IdGrupo)
 )Engine = InnoDB;
 
-create table Usuario(
-IdUsuario int not null,
-Nombre varchar(30) not null,
-Pass varchar(30) not null,
-primary key (IdUsuario)
-)Engine = InnoDB;
-
-create table trabajo(
-IdUsuario int not null,
-IdEmpresa int not null,
-foreign key (IdUsuario) references Usuario (IdUsuario), 
-foreign key (IdEmpresa) references empresa (IdEmpresa)
-)Engine = InnoDB;
-
 create table departamento(
 IdDepartamento int primary key not null,
 NombreDep varchar(55) not null,
@@ -63,9 +49,17 @@ IdEmpresa int not null,
 foreign key (IdEmpresa) references empresa (IdEmpresa)
 )Engine = InnoDB;
 
+create table Usuario(
+IdUsuario int not null,
+Nombre varchar(30) not null,
+Pass varchar(30) not null,
+primary key (IdUsuario)
+)Engine = InnoDB;
+
 create table bodega(
 IdBodega int primary key not null,
-NombreB varchar(30) not null
+NombreB varchar(30) not null,
+seccionB varchar(128) not null
 )Engine = InnoDB;
 
 create table existencia(
@@ -102,7 +96,6 @@ foreign key (IdVendedor) references vendedores (IdVendedor),
 foreign key (IdDepartamento) references departamento (IdDepartamento)
 )Engine = InnoDB;
 
-
 create table moneda(
 IdMoneda int primary key not null,
 Nombre varchar(30) not null,
@@ -137,7 +130,7 @@ anio date not null
 create table sucursal(
 CodigoSucursal int primary key not null,
 NombreSucursal varchar(30) not null,
-Direccion varchar(30) not null
+DireccionSucursal varchar(30) not null
 )Engine = InnoDB;
 
 create table ventaencabezado(
