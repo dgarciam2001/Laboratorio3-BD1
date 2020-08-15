@@ -205,7 +205,7 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "NO PUEDE HABER CAMPOS VACIOS","WARNING",JOptionPane.WARNING_MESSAGE);
         } else {
             try {
-                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "Rochi1523");
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "compromete");
                 PreparedStatement pst = cn.prepareStatement("insert into clientes values(?,?,?,?,?,?)");
 
                 pst.setString(1, txtId.getText().trim());
@@ -241,7 +241,7 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
             try {
                 String ID = cboBuscar.getSelectedItem().toString();
 
-                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "Rochi1523");
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "compromete");
                 PreparedStatement pst = cn.prepareStatement("update clientes set IdCliente = ?, NombreCliente=?, CorreoCliente=?, DireccionCliente=?, TelefonoCliente=?, Idvendedor=?, where IdCliente = " + ID);
 
                 pst.setString(1, txtId.getText().trim());
@@ -278,7 +278,7 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
         } else {
 
             try {
-                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "Rochi1523");
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "compromete");
                 PreparedStatement pst = cn.prepareStatement("delete from clientes where IdCliente = ?");
 
                 pst.setString(1, cboBuscar.getSelectedItem().toString());
@@ -305,7 +305,7 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "NO SE INGRESO NINGUN MAESTRO DE BUSQUEDA");
         } else {
         try {
-            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "Rochi1523");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "compromete");
             PreparedStatement pst = cn.prepareStatement("select * from clientes where IdCliente = ?");
             pst.setString(1, cboBuscar.getSelectedItem().toString());
 
@@ -338,7 +338,7 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
     public void buscarCliente(){
             try{
           
-        Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "Rochi1523");
+        Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "compromete");
         PreparedStatement pst = cn.prepareStatement("select IdCliente from clientes");
             ResultSet rs = pst.executeQuery();
 

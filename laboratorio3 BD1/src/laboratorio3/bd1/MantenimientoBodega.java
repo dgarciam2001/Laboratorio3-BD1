@@ -163,7 +163,7 @@ public class MantenimientoBodega extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "NO SE INGRESO NINGUN MAESTRO DE BUSQUEDA");
         } else {
             try {
-                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "Rochi1523");
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "compromete");
                 PreparedStatement pst = cn.prepareStatement("select * from bodega where IdBodega = ?");
                 pst.setString(1, cboBuscar.getSelectedItem().toString());
 
@@ -196,7 +196,7 @@ public class MantenimientoBodega extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "NO PUEDE HABER CAMPOS VACIOS","WARNING",JOptionPane.WARNING_MESSAGE);
         } else {
             try {
-                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "Rochi1523");
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "compromete");
                 PreparedStatement pst = cn.prepareStatement("insert into bodega values(?,?,?)");
 
                 pst.setString(1, txtId.getText().trim());
@@ -226,7 +226,7 @@ public class MantenimientoBodega extends javax.swing.JInternalFrame {
             try {
                 String ID = cboBuscar.getSelectedItem().toString();
 
-                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "Rochi1523");
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "compromete");
                 PreparedStatement pst = cn.prepareStatement("update bodega set IdBodega = ?, NombreB=?, seccionB=?, where IdBodega = " + ID);
 
                 pst.setString(1, txtId.getText().trim());
@@ -259,7 +259,7 @@ public class MantenimientoBodega extends javax.swing.JInternalFrame {
         } else {
 
             try {
-                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "Rochi1523");
+                Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "compromete");
                 PreparedStatement pst = cn.prepareStatement("delete from bodega where IdBodega = ?");
 
                 pst.setString(1, cboBuscar.getSelectedItem().toString());
@@ -281,7 +281,7 @@ public class MantenimientoBodega extends javax.swing.JInternalFrame {
     public void buscarBodega(){
             try{
           
-        Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "Rochi1523");
+        Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/cafeteria", "root", "compromete");
         PreparedStatement pst = cn.prepareStatement("select IdBodega from bodega");
             ResultSet rs = pst.executeQuery();
 
