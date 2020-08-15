@@ -3,14 +3,14 @@ create database cafeteria;
 use cafeteria;
 
 create table proveedor(
-IdPreveedor int primary key not null,
+IdProveedor int primary key not null,
 NombreProv varchar(50) not null,
 Direccion varchar(50) not null,
 Telefono varchar(50) not null
 )Engine = InnoDB;
 
 create table compraencabezado(
-IdCompraEncabezado int primary key not null,
+IdCompraEncabezado int primary key auto_increment,
 IdPreveedor int not null,
 fechaCompraE date not null,
 totalCompraE double(6,2) not null,
