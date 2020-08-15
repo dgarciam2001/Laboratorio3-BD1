@@ -1,4 +1,4 @@
-drop database cafeteria;
+#drop database cafeteria;
 create database cafeteria;
 use cafeteria;
 
@@ -42,6 +42,57 @@ IdGrupo int not null,
 foreign key (IdGrupo) references grupo (IdGrupo)
 )Engine = InnoDB;
 
+<<<<<<< HEAD
+create table perfil(
+IdPerfil int primary key not null,
+NombrePerfil varchar(30) not null,
+Estado boolean not null
+)Engine = InnoDB;
+
+create table Aplicaciones(
+NombreTabla int not null,
+IdPerfil int not null,
+primary key (IdPerfil),
+foreign key (IdPerfil) references perfil (IdPerfil)
+)Engine = InnoDB;
+
+create table Usuario(
+IdUsuario int not null,
+Nombre varchar(30) not null,
+Pass varchar(30) not null,
+Estado boolean not null,
+IdPerfil int not null,
+primary key (IdUsuario, IdPerfil),
+foreign key (IdPerfil) references perfil (IdPerfil)
+)Engine = InnoDB;
+
+create table permisos(
+Consultar varchar(30) not null,
+Insertar varchar(30) not null,
+Modificar varchar(30) not null,
+Eliminar varchar(30) not null,
+IdUsuario int not null,
+primary key (IdUsuario),
+foreign key (IdUsuario) references Usuario (IdUsuario)
+)Engine = InnoDB;
+
+create table bitacora(
+IdUsuario int not null,
+Fecha date not null,
+Hora varchar(30) not null,
+primary key (IdUsuario),
+foreign key (IdUsuario) references Usuario (IdUsuario)
+)Engine = InnoDB;
+
+create table trabajo(
+IdUsuario int not null,
+IdEmpresa int not null,
+foreign key (IdUsuario) references Usuario (IdUsuario), 
+foreign key (IdEmpresa) references empresa (IdEmpresa)
+)Engine = InnoDB;
+
+=======
+>>>>>>> 27fe0fe5c6ac4e82d0f18db88d8963fe89daa766
 create table departamento(
 IdDepartamento int primary key not null,
 NombreDep varchar(55) not null,
